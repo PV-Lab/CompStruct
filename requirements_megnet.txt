@@ -1,0 +1,11 @@
+numpy==1.19.5
+monty==2021.3.3
+spglib==1.16.1
+pymatgen==2021.2.8.1
+pandas==1.2.3
+tensorflow==2.4.1
+scikit-learn==1.0.2
+tabulate==0.8.9
+tqdm==4.61.1
+tables==3.6.1
+matplotlib==3.4.2
