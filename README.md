@@ -13,8 +13,9 @@ This repository is based on four materials property prediction machine learning 
   - [CrabNet](#crabnet)
   - [Roost](#roost)
 - [Usage](#usage)
-  - []()
-  - []()
+  - [Run main results](#run-main-results)
+  - [Reproduce publications figures](#reproduce-publications-figures)
+  - [Included scripts and folders](#included-scripts-and-folders)
 - [Authors](#authors)
 
 # How to Cite
@@ -195,13 +196,16 @@ To get results as shown in Figure 3, S1, S2 and S3 for various datasets, run mai
     </tbody>
 </table>
 
+
+ **Run results are stored in respective framework folders in [results](./results/), trained models in respective folders in [models](./models/), and predicted vs. actual properties in respective folders in [plots](./plots/).** Folder models and plots will only appear after the `main_*.py` scripts are run. Currently folder [results](./results/) hosts results from the runs in the study, and the results will be replaced if the main scripts are run.
+
 ## Reproduce publications figures
 
 Run `.py` files for respective figures in [publication figures](./publication%20figures/).
 1. Navigate to publication figures folder
 2. Run `python figure_3.py` to generate Figure 3, and other scripts to generate other figures.
 
-## Included scripts and folders:
+## Included scripts and folders
 <table>
     <thead>
         <tr>
@@ -224,82 +228,45 @@ Run `.py` files for respective figures in [publication figures](./publication%20
             <td rowspan=1><code>main_crabnet.py</code></td>
         </tr>
         <tr>
-            <td rowspan=1>requirements_megnet.txt</td>
+            <td rowspan=1><code>requirements_megnet.txt</code></td>
             <td rowspan=1>Installation file for MEGNet</td>
         </tr>
         <tr>
-            <td rowspan=1>requirements_cgcnn.txt</td>
+            <td rowspan=1><code>requirements_cgcnn.txt</code></td>
             <td rowspan=1>Installation file for CGCNN</td>
         </tr>
         <tr>
-            <td rowspan=1>requirements_roost.txt</td>
+            <td rowspan=1><code>requirements_roost.txt</code></td>
             <td rowspan=2>Installation files for Roost</td>
         </tr>
         <tr>
-            <td rowspan=1>conda-env_roost.yml</td>
+            <td rowspan=1><code>conda-env_roost.yml</code></td>
         </tr>
         <tr>
-            <td rowspan=1>conda-env_crabnet.yml</td>
+            <td rowspan=1><code>conda-env_crabnet.yml</code></td>
             <td rowspan=2>Installation files for CrabNet</td>
         </tr>
         <tr>
-            <td rowspan=1>conda-env-cpuonly_crabnet.yml</td>
-        </tr>
-    </tbody>
-</table>
-<table>
-    <thead>
-        <tr>
-            <th>Folders</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td rowspan=1><a ref='./main_megnet.py'>main_megnet.py</a></td>
-            <td rowspan=4>Main files to run for training various ML frameworks</td>
-        </tr>
-        <tr>
-            <td rowspan=1><code>main_cgcnn.py</code></td>
-        </tr>
-        <tr>
-            <td rowspan=1><code>main_roost.py</code></td>
-        </tr>
-        <tr>
-            <td rowspan=1><code>main_crabnet.py</code></td>
-        </tr>
-        <tr>
-            <td rowspan=1>requirements_megnet.txt</td>
-            <td rowspan=1>Installation file for MEGNet</td>
-        </tr>
-        <tr>
-            <td rowspan=1>requirements_cgcnn.txt</td>
-            <td rowspan=1>Installation file for CGCNN</td>
-        </tr>
-        <tr>
-            <td rowspan=1>requirements_roost.txt</td>
-            <td rowspan=2>Installation files for Roost</td>
-        </tr>
-        <tr>
-            <td rowspan=1>conda-env_roost.yml</td>
-        </tr>
-        <tr>
-            <td rowspan=1>conda-env_crabnet.yml</td>
-            <td rowspan=2>Installation files for CrabNet</td>
-        </tr>
-        <tr>
-            <td rowspan=1>conda-env-cpuonly_crabnet.yml</td>
+            <td rowspan=1><code>conda-env-cpuonly_crabnet.yml</code></td>
         </tr>
     </tbody>
 </table>
 
 | Folders | Description |
 | ------------- | ------------------------------ |
-| [data](./data)  | hosts saved datasets; the [utils](./data/utils/) folder within also contains scripts for Tauc-Lorentz oscillator `TaucLorentz.py` and transfer-matrix method `ScatteringMatrix.py`. |
-| [pre-trained models](./pre-trained%20models/) | hosts pre-trained models; pre-trained models outputted by a running of `pre-training.py` will replace the current saved pre-trained models.
+| [megnet](./megnet)  | modified MEGNet code |
+| [cgcnn](./cgcnn)  | modified CGCNN code |
+| [roost](./roost)  | modified Roost code |
+| [crabnet](./crabnet)  | modified CrabNet code |
+| [embeddings](./embeddings)  | hosts one-hot embeddings used by various frameworks |
+| [data](./data)  | hosts saved datasets used by various frameworks. All data were queried from [Materials Project](https://materialsproject.org/) on Nov 26, 2021. |
+| [utils](./utils)  | hosts auxillary functions |
+| [results](./results) | hosts saved results from the runs in the study. Will be replaced once `main_*.py` are run. Inside each framework folder, the `.pickle` files record respective `data segregation`, `property`, and `score`, where `score` is (MAE, MAE reference[^3]). Inside the `prediction` folder in each framework folder, the `.pickle` files record `y_train`, `y_train_hat`, `y_val`, `y_val_hat`, `y_test`, and `y_test_hat`. |
+| [publication figure](./publication%20figures/) | hosts scripts for generating publications figures |
 
 # Authors
 The code was primarily written by Siyu Isaac Parker Tian, under the supervision of Tonio Buonassisi and Qianxiao Li.
 
 [^1]: explanations of this section borrow from [CrabNet Installation](https://github.com/anthony-wang/CrabNet/blob/master/README_CrabNet.md#install-dependencies-via-anaconda)
 [^2]: based on [CrabNet Installation Figure Reproduction](https://github.com/anthony-wang/CrabNet/blob/master/README_CrabNet.md#important---if-you-want-to-reproduce-the-publication-figures-1-and-2)
+[^3]: The reference MAE is calculated by taking every predicted property in the test set to be the mean of actual property values in the test set, following the convention used in the [Matbench paper](https://www.nature.com/articles/s41524-020-00406-3).
