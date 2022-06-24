@@ -256,7 +256,7 @@ Run `.py` files for respective figures in [publication figures](./publication%20
     </thead>
     <tbody>
         <tr>
-            <td rowspan=1><a ref='main_megnet.py'>main_megnet.py</a></td>
+            <td rowspan=1><a ref='https://github.com/PV-Lab/CompStruct/main/main_megnet.py'>main_megnet.py</a></td>
             <td rowspan=4>Main files to run for training various ML frameworks</td>
         </tr>
         <tr>
