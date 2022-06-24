@@ -1,3 +1,4 @@
 **/nonCommits
 **/__pycache__
 *.zip
+data/*
