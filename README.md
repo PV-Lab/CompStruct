@@ -13,6 +13,7 @@ This repository is based on four materials property prediction machine learning 
   - [CrabNet](#crabnet)
   - [Roost](#roost)
 - [Usage](#usage)
+  - [Obtain datasets](#obtain-datasets)
   - [Run main results](#run-main-results)
   - [Reproduce publications figures](#reproduce-publications-figures)
   - [Included scripts and folders](#included-scripts-and-folders)
@@ -38,7 +39,7 @@ We recommend users to build separate virtual environments for every ML framework
 
 ## Ways to create virtual enviroments with Anaconda[^1]
 1. Download and install [Anaconda](https://conda.io/docs/index.html)
-2. Navigate to the project directory (from above).
+2. Navigate to the CompStruct repository directory (from above).
 3. Open Anaconda prompt in this directory.
 4. If there is a conda environment `.yml` file, run the following command from Anaconda prompt to automatically create an environment and install packages needed from the `*.yml` file:
     - `conda env create --file *.yml` (environment name defined in the `*.yml` file)
@@ -155,7 +156,15 @@ For more information see:
 *Included Roost code is modified based on the [Roost repository](https://github.com/CompRhys/roost) on Dec 3, 2021.*
 
 # Usage
-To get results as shown in Figure 3, S1, S2 and S3 for various datasets, run main results. Before running each main result, activate the respective environment and navigate to CompStruct repository directory.
+To get results as shown in Figure 3, S1, S2 and S3 for various datasets, run main results. Before running each main result, activate the respective environment and navigate to CompStruct repository directory. **Obtain datasets first before running any results.**
+
+## Obtain datasets
+1. Download compressed data file `data.tar.gz` from https://figshare.com/articles/dataset/data_tar_gz/20161235.
+2. Move `data.tar.gz` to CompStruct repository directory.
+3. Run `tar -xvf data.tar.gz` in Anaconda prompt after navigating into CompStruct repository directory.
+
+Datasets will automatically appear in folder [data](./data/) after uncompressing using `tar`.
+
 ## Run main results
 <table>
     <thead>
@@ -197,7 +206,7 @@ To get results as shown in Figure 3, S1, S2 and S3 for various datasets, run mai
 </table>
 
 
- **Run results are stored in respective framework folders in [results](./results/), trained models in respective folders in [models](./models/), and predicted vs. actual properties in respective folders in [plots](./plots/).** Folder models and plots will only appear after the `main_*.py` scripts are run. Currently folder [results](./results/) hosts results from the runs in the study, and the results will be replaced if the main scripts are run.
+ **Run results are stored in respective framework folders in [results](./results/), trained models in respective folders in [models](./models/), and predicted vs. actual properties in respective folders in [plots](./plots/).** Folder [models](./models/) and [plots](./plots/) will only appear after the `main_*.py` scripts are run. Currently folder [results](./results/) hosts results from the runs in the study, and the results will be replaced if the main scripts are run.
 
 ## Reproduce publications figures
 
@@ -259,7 +268,7 @@ Run `.py` files for respective figures in [publication figures](./publication%20
 | [roost](./roost)  | modified Roost code |
 | [crabnet](./crabnet)  | modified CrabNet code |
 | [embeddings](./embeddings)  | hosts one-hot embeddings used by various frameworks |
-| [data](./data)  | hosts saved datasets used by various frameworks. All data were queried from [Materials Project](https://materialsproject.org/) on Nov 26, 2021. |
+| [data](./data)  | hosts saved datasets used by various frameworks. All data were queried from [Materials Project](https://materialsproject.org/) on Nov 26, 2021. Only appears after downloading and uncompressing `data.tar.gz` from [figshare](https://figshare.com/articles/dataset/data_tar_gz/20161235) according to [Obtain datasets](#obtain-datasets). |
 | [utils](./utils)  | hosts auxillary functions |
 | [results](./results) | hosts saved results from the runs in the study. Will be replaced once `main_*.py` are run. Inside each framework folder, the `.pickle` files record respective `data segregation`, `property`, and `score`, where `score` is (MAE, MAE reference[^3]). Inside the `prediction` folder in each framework folder, the `.pickle` files record `y_train`, `y_train_hat`, `y_val`, `y_val_hat`, `y_test`, and `y_test_hat`. |
 | [publication figure](./publication%20figures/) | hosts scripts for generating publications figures |
