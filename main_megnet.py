@@ -60,11 +60,6 @@ for ds in args.data_segregation:
                     print('Dataset loaded')
                     data.dataset(ds, prop)
                     
-                    # temp
-                    idx = np.random.choice(np.arange(len(data.y)), 1000, replace=False)
-                    data.X = data.X[idx]
-                    data.y = data.y[idx]
-                    
                     def train(train_index, val_index, test_index, callback_dir, epochs=args.epochs, 
                               graph_converter=CrystalGraph(cutoff=4, 
                                 bond_converter=GaussianDistance(np.linspace(0, 5, 100), 0.5))
