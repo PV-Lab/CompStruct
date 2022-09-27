@@ -211,4 +211,4 @@ ax.fill_betweenx([0.05, 0.988], [0.832, 0.832], [0.963, 0.963], alpha=0.1, color
 ax.axis('off')
 
 os.makedirs('figures', exist_ok=True)
-plt.savefig('figures/Figure S1.png', dpi=600, bbox_inches='tight')
+plt.savefig('figures/Figure S3.png', dpi=600, bbox_inches='tight')
