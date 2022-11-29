@@ -49,7 +49,7 @@ ax = plt.subplot(a[0])
 ax.plot(x, y, 'ko-', lw=1.3, markersize=5)
 ax.plot(x, y+delta, 'k--', lw=1.3)
 ax.fill_between(x, y, y+delta, color='palegreen')
-ax.text(x[1], y[1]+0.32*delta, 'stable', fontweight='bold')
+ax.text(x[1], y[1]+0.32*delta, 'stable', fontweight='semibold')
 ax.text(-0.02, -2.3, '$\Delta$ = 0.1 eV/atom', fontsize=font['size']-2)
 ax.text(x[0]+0.01, y[0]+0.37*delta, '$\Delta$', fontsize=font['size']-2)
 ax.arrow(x[0], y[0]+1.6*offset, 0, delta-2.6*offset, length_includes_head=True, 
@@ -67,7 +67,7 @@ ax = plt.subplot(b[0])
 ax.plot(x, y, 'ko-', lw=1.3, markersize=5)
 ax.plot(x, y+delta, 'k--', lw=1.3)
 ax.fill_between(x, y+delta, 3.9, color='palegoldenrod')
-ax.text(x[1]-0.08, y[1]+2*delta, 'unstable', fontweight='bold')
+ax.text(x[1]-0.08, y[1]+2*delta, 'unstable', fontweight='semibold')
 ax.text(x[0]+0.01, y[0]+0.37*delta, '$\Delta$', fontsize=font['size']-2)
 ax.arrow(x[0], y[0]+1.6*offset, 0, delta-2.6*offset, length_includes_head=True, 
          lw=0.7, head_length=0.15, head_width=0.05, color='k')
@@ -117,10 +117,10 @@ def plot_prop(ax, data_segregation, prop):
     if data_segregation == 'stable' and prop == 'formation_energy_per_atom':
         ax.set_xticklabels(method, rotation=45, rotation_mode='anchor', ha='right')
         ax.text(-0.03, 0.94, 'MAE', fontsize=font['size']-2, transform=ax.transAxes, horizontalalignment='right')
-        ax.text(-1.15, 0.3, 'Struct', fontweight='bold', color=color[1], fontsize=font['size']-2)
-        ax.text(0.1, 0.3, 'Comp', fontweight='bold', color=color[3], fontsize=font['size']-2)
-        ax.text(0.6, 0.33, '+', fontweight='bold', color=color[3], fontsize=font['size']-2)
-        ax.text(0.1, 0.373, 'Struct', fontweight='bold', color=color[3], fontsize=font['size']-2)
+        ax.text(-1.15, 0.3, 'Struct', fontweight='semibold', color=color[1], fontsize=font['size']-2)
+        ax.text(0.1, 0.3, 'Comp', fontweight='semibold', color=color[3], fontsize=font['size']-2)
+        ax.text(0.6, 0.33, '+', fontweight='semibold', color=color[3], fontsize=font['size']-2)
+        ax.text(0.1, 0.373, 'Struct', fontweight='semibold', color=color[3], fontsize=font['size']-2)
         ax.text(1.08, -0.23, f"$\sim${ndata_train}K", ha='right', fontsize=font['size']-4,
             transform=ax.transAxes)
     else:
@@ -154,7 +154,7 @@ def plot_prop(ax, data_segregation, prop):
                   head_width=0.15, color='k', ls='--'
         )
         ax.text(x_bar[-1]+1.04, min(struct, compstruct)+0.38*(struct-compstruct), 
-                str(np.round(improvement*100, 1))+'%', fontweight='bold', ha='right')
+                str(np.round(improvement*100, 1))+'%', fontweight='semibold', ha='right')
     else:
         length = 0.06*(top-bottom)
         offset = 0.01*(top-bottom)
@@ -168,7 +168,7 @@ def plot_prop(ax, data_segregation, prop):
                   head_width=0.15, color='k', ls='--'
         )
         ax.text(x_bar[-1]+0.99, max(struct, compstruct)+0.12*(top-bottom), 
-                str(np.round(improvement*100, 1))+'%', fontweight='bold', ha='right')
+                str(np.round(improvement*100, 1))+'%', fontweight='semibold', ha='right')
     return improvement, data_segregation, prop
 
 improvements = {}
