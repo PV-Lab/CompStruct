@@ -59,8 +59,8 @@ fs = 18
 ax.plot(x, y-0.5*delta, 'k-', lw=1.3)
 ax.scatter(x_[n_p], y_[n_p]-0.5*delta, marker='x', c='darkorange')
 ax.scatter(x_[p], y_[p]-0.5*delta, marker='x', c='k')
-ax.text(0.025, 2.7, 'x', fontweight='bold', color='darkorange', fontsize=fs)
-ax.text(0.125, 2.7, ': non-poly', fontweight='bold', fontsize=fs)
+ax.text(0.025, 2.7, 'x', fontweight='semibold', color='darkorange', fontsize=fs)
+ax.text(0.125, 2.7, ': non-poly', fontweight='semibold', fontsize=fs)
 ax.set_ylim(-2.5, 4)
 ax.set_xlim(-0.05, 1.05)
 ax.set_xticks([])
@@ -73,8 +73,8 @@ ax.plot(x, y-0.5*delta, 'k-', lw=1.3)
 ax.scatter(x_[n_p], y_[n_p]-0.5*delta, marker='x', c='k')
 ax.scatter(x_[p], y_[p]-0.5*delta, marker='x', c='purple')
 
-ax.text(0.23, 2.7, 'x', fontweight='bold', color='purple', fontsize=fs)
-ax.text(0.33, 2.7, ': poly', fontweight='bold', fontsize=fs)
+ax.text(0.23, 2.7, 'x', fontweight='semibold', color='purple', fontsize=fs)
+ax.text(0.33, 2.7, ': poly', fontweight='semibold', fontsize=fs)
 ax.set_ylim(-2.5, 4)
 ax.set_xlim(-0.05, 1.05)
 ax.set_xticks([])
@@ -121,10 +121,10 @@ def plot_prop(ax, data_segregation, prop, data_segregations=('non-poly', 'poly')
     if data_segregation == data_segregations[0] and prop == 'formation_energy_per_atom':
         ax.set_xticklabels(method, rotation=45, rotation_mode='anchor', ha='right')
         ax.text(-2.07, 0.159, 'MAE', fontsize=font['size']-2)
-        ax.text(-1.15, 0.135, 'Comp', fontweight='bold', color=color[1], fontsize=font['size']-2)
-        ax.text(0.1, 0.11, 'Comp', fontweight='bold', color=color[3], fontsize=font['size']-2)
-        ax.text(0.62, 0.121, '+', fontweight='bold', color=color[3], fontsize=font['size']-2)
-        ax.text(0.1, 0.135, 'Struct', fontweight='bold', color=color[3], fontsize=font['size']-2)
+        ax.text(-1.15, 0.135, 'Comp', fontweight='semibold', color=color[1], fontsize=font['size']-2)
+        ax.text(0.1, 0.11, 'Comp', fontweight='semibold', color=color[3], fontsize=font['size']-2)
+        ax.text(0.62, 0.121, '+', fontweight='semibold', color=color[3], fontsize=font['size']-2)
+        ax.text(0.1, 0.135, 'Struct', fontweight='semibold', color=color[3], fontsize=font['size']-2)
     else:
         ax.set_xticklabels([])
     ax.tick_params(direction='out', pad=1)
@@ -154,7 +154,7 @@ def plot_prop(ax, data_segregation, prop, data_segregations=('non-poly', 'poly')
                   head_width=0.15, color='k', ls='--'
         )
         ax.text(x_bar[-1]+1.12, min(comp, compstruct)+0.38*(comp-compstruct), 
-                str(np.round(improvement*100, 1))+'%', fontweight='bold', ha='right')
+                str(np.round(improvement*100, 1))+'%', fontweight='semibold', ha='right')
     else:
         length = 0.06*(top-bottom)
         offset = 0.01*(top-bottom)
@@ -168,7 +168,7 @@ def plot_prop(ax, data_segregation, prop, data_segregations=('non-poly', 'poly')
                   head_width=0.15, color='k', ls='--'
         )
         ax.text(x_bar[-1]+0.99, max(comp, compstruct)+0.12*(top-bottom), 
-                str(np.round(improvement*100, 1))+'%', fontweight='bold', ha='right')
+                str(np.round(improvement*100, 1))+'%', fontweight='semibold', ha='right')
     return improvement, data_segregation, prop
 
 improvements = {}
