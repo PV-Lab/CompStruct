@@ -56,8 +56,8 @@ fs = 18
 ax.plot(x, y-0.5*delta, 'k-', lw=1.3)
 ax.scatter(x_[n_p], y_[n_p]-0.5*delta, marker='x', c='darkorange')
 ax.scatter(x_[p], y_[p]-0.5*delta, marker='x', c='k')
-ax.text(0.025, 2.7, 'x', fontweight='bold', color='darkorange', fontsize=fs)
-ax.text(0.125, 2.7, ': non-poly', fontweight='bold', fontsize=fs)
+ax.text(0.025, 2.7, 'x', fontweight='semibold', color='darkorange', fontsize=fs)
+ax.text(0.125, 2.7, ': non-poly', fontweight='semibold', fontsize=fs)
 ax.set_ylim(-2.5, 4)
 ax.set_xlim(-0.05, 1.05)
 ax.set_xticks([])
@@ -70,8 +70,8 @@ ax.plot(x, y-0.5*delta, 'k-', lw=1.3)
 ax.scatter(x_[n_p], y_[n_p]-0.5*delta, marker='x', c='k')
 ax.scatter(x_[p], y_[p]-0.5*delta, marker='x', c='purple')
 
-ax.text(0.23, 2.7, 'x', fontweight='bold', color='purple', fontsize=fs)
-ax.text(0.33, 2.7, ': poly', fontweight='bold', fontsize=fs)
+ax.text(0.23, 2.7, 'x', fontweight='semibold', color='purple', fontsize=fs)
+ax.text(0.33, 2.7, ': poly', fontweight='semibold', fontsize=fs)
 ax.set_ylim(-2.5, 4)
 ax.set_xlim(-0.05, 1.05)
 ax.set_xticks([])
@@ -116,10 +116,10 @@ def plot_prop(ax, data_segregation, prop):
     if data_segregation == 'non-poly' and prop == 'formation_energy_per_atom':
         ax.set_xticklabels(method, rotation=45, rotation_mode='anchor', ha='right')
         ax.text(-0.03, 0.94, 'MAE', fontsize=font['size']-2, transform=ax.transAxes, horizontalalignment='right')
-        ax.text(-1.15, 0.415, 'Struct', fontweight='bold', color=color[1], fontsize=font['size']-2)
-        ax.text(0.1, 0.342, 'Comp', fontweight='bold', color=color[3], fontsize=font['size']-2)
-        ax.text(0.6, 0.372, '+', fontweight='bold', color=color[3], fontsize=font['size']-2)
-        ax.text(0.1, 0.415, 'Struct', fontweight='bold', color=color[3], fontsize=font['size']-2)
+        ax.text(-1.15, 0.415, 'Struct', fontweight='semibold', color=color[1], fontsize=font['size']-2)
+        ax.text(0.1, 0.342, 'Comp', fontweight='semibold', color=color[3], fontsize=font['size']-2)
+        ax.text(0.6, 0.372, '+', fontweight='semibold', color=color[3], fontsize=font['size']-2)
+        ax.text(0.1, 0.415, 'Struct', fontweight='semibold', color=color[3], fontsize=font['size']-2)
         ax.text(1.08, -0.23, f"$\sim${ndata_train}K", ha='right', fontsize=font['size']-4,
             transform=ax.transAxes)
     else:
@@ -153,7 +153,7 @@ def plot_prop(ax, data_segregation, prop):
                   head_width=0.15, color='k', ls='--'
         )
         ax.text(x_bar[-1]+1.04, min(struct, compstruct)+0.38*(struct-compstruct), 
-                str(np.round(improvement*100, 1))+'%', fontweight='bold', ha='right')
+                str(np.round(improvement*100, 1))+'%', fontweight='semibold', ha='right')
     else:
         length = 0.06*(top-bottom)
         offset = 0.01*(top-bottom)
@@ -167,7 +167,7 @@ def plot_prop(ax, data_segregation, prop):
                   head_width=0.15, color='k', ls='--'
         )
         ax.text(x_bar[-1]+0.99, max(struct, compstruct)+0.12*(top-bottom), 
-                str(np.round(improvement*100, 1))+'%', fontweight='bold', ha='right')
+                str(np.round(improvement*100, 1))+'%', fontweight='semibold', ha='right')
     return improvement, data_segregation, prop
 
 improvements = {}
